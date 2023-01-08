@@ -1,1 +1,9 @@
 @use postcss-nested;
+
+#copy_uuid {
+  transition: transform 0.2s linear;
+}
+
+#copy_uuid:hover {
+  transform: scale(1.2) translate(-3px);
+}

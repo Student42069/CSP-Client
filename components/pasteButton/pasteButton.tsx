@@ -1,17 +1,17 @@
 import "./style.css";
 
-import React, { useState } from "react";
+import React from "react";
 
 export default function pasteButton({ paste }: any) {
   return (
     <button
       onClick={paste}
-      className="cursor-pointer mx-3 download-button transform active:scale-95 bg-blue-500 hover:bg-blue-700 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
+      className="border-b-4 border-r-0 border-blue-900 hover:border-blue-800 cursor-pointer mx-3  transform active:scale-95 bg-blue-700 hover:bg-blue-600 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
     >
       <div className="flex justify-center items-center relative">
         <div className="svg-container">
           <svg
-            className=""
+            className="download-arrow"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

@@ -1,9 +1,5 @@
 @use postcss-nested;
 
-body {
-  font-family: "Roboto", sans-serif;
-}
-
 button {
   &:hover {
     transform: scale(1.01);
@@ -25,7 +21,7 @@ button {
   transition: transform 0.2s linear;
 }
 button:hover .download-arrow {
-  transform: translate(0, 3px);
+  transform: scale(1.2) translate(-3px);
 }
 
 @keyframes svgScale {
@@ -38,20 +34,16 @@ button:hover .download-arrow {
   }
 }
 
-/* button.download-button {
-  min-width: 340px;
-  min-height: 68px;
-} */
-.download-loader {
+.t2download-loader {
   width: 16px;
   height: 16px;
   border: 2px solid transparent;
   border-top-color: #ffffff;
   border-radius: 50%;
   opacity: 0;
-  animation: button-loading-spinner 1s ease 3;
+  animation: t2button-loading-spinner 0.5s ease 3;
 }
-@keyframes button-loading-spinner {
+@keyframes t2button-loading-spinner {
   from {
     transform: rotate(0turn);
     opacity: 1;
@@ -64,9 +56,4 @@ button:hover .download-arrow {
 }
 .button-copy {
   padding-top: 2px;
-}
-@media (max-width: 375px) {
-  button.copy-button {
-    min-width: 300px;
-  }
 }

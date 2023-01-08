@@ -1,34 +1,45 @@
 import "./style.css";
 
-import React, { ReactNode, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function sendButton({ send }: any) {
+export default function sendButton({ send, trigger }: any) {
   const [sendButtonText, setSendButtonText] = useState("SEND");
-  const [iconClass, setIconClass] = useState("");
+  const [iconClass, setIconClass] = useState("download-arrow");
   const [loaderClass, setLoaderClass] = useState(
-    "download-loader text-white hidden"
+    "t2download-loader text-white hidden"
   );
   const [checkMarkClass, setCheckMarkClass] = useState("check-svg hidden");
 
   function handleSend() {
     setSendButtonText("SENDING");
     setIconClass(iconClass + " hidden");
-    setLoaderClass("download-loader text-white");
+    setLoaderClass("t2download-loader text-white");
     setCheckMarkClass("check-svg hidden");
   }
 
   function handleAnimationEnd() {
-    setLoaderClass("download-loader text-white hidden");
+    setLoaderClass("t2download-loader text-white hidden");
     setCheckMarkClass("check-svg");
     setSendButtonText("SENT");
     send();
   }
 
+  function resetText() {
+    setSendButtonText("SEND");
+    setIconClass("download-arrow");
+    setLoaderClass("t2download-loader text-white hidden");
+    setCheckMarkClass("check-svg hidden");
+  }
+
+  useEffect(() => {
+    resetText();
+  }, [trigger]);
+
   return (
     <button
       onAnimationEnd={handleAnimationEnd}
       onClick={handleSend}
-      className="download-button transform active:scale-95 bg-green-500 hover:bg-green-700 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
+      className="border-b-4 border-r-0 border-green-900 hover:border-green-700 transform active:scale-95 bg-green-700 hover:bg-green-600 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
     >
       <div className="flex justify-center items-center relative">
         <div className="svg-container">

@@ -1,33 +1,46 @@
-import "./style.css";
+import "./clear.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function clearButton({ clear }) {
+export default function clearButton({ clear, trigger }: any) {
   const [sendButtonText, setSendButtonText] = useState("CLEAR");
-  const [iconClass, setIconClass] = useState("");
+  const [iconClass, setIconClass] = useState("download-arrow");
   const [loaderClass, setLoaderClass] = useState(
-    "download-loader text-white hidden"
+    "t1download-loader text-white hidden"
   );
-  const [checkMarkClass, setCheckMarkClass] = useState("check-svg hidden");
+  const [checkMarkClass, setCheckMarkClass] = useState("t1check-svg hidden");
 
-  function handleSend() {
+  function handleClear() {
+    clear();
     setSendButtonText("CLEARING");
     setIconClass(iconClass + " hidden");
-    setLoaderClass("download-loader text-white");
-    setCheckMarkClass("check-svg hidden");
+    setLoaderClass("t1download-loader text-white");
+    setCheckMarkClass("t1check-svg hidden");
   }
 
   function handleAnimationEnd() {
-    setLoaderClass("download-loader text-white hidden");
-    setCheckMarkClass("check-svg");
+    setLoaderClass("t1download-loader text-white hidden");
+    setCheckMarkClass("t1check-svg");
     setSendButtonText("CLEARED");
   }
 
+  function resetText() {
+    setSendButtonText("CLEAR");
+    setIconClass("download-arrow");
+    setLoaderClass("t1download-loader text-white hidden");
+    setCheckMarkClass("t1check-svg hidden");
+  }
+
+  useEffect(() => {
+    resetText();
+  }, [trigger]);
+
   return (
     <button
+      id="clearButton"
       onAnimationEnd={handleAnimationEnd}
-      onClick={clear}
-      className="cursor-pointer  download-button transform active:scale-95 bg-red-500 hover:bg-red-700 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
+      onClick={handleClear}
+      className="border-b-4 border-r-0 border-red-800 hover:border-red-600 cursor-pointer transform active:scale-95 bg-red-600 hover:bg-red-500 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
     >
       <div className="flex justify-center items-center relative">
         <div className="svg-container">
