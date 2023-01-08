@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function uuidNotification({ uuid }) {
+export default function uuidNotification({ uuid }: any) {
   return (
     <div className="text-center pt-6 lg:px-4 text-2xl">
       <div
@@ -12,7 +12,7 @@ export default function uuidNotification({ uuid }) {
           onClick={() => {
             navigator.clipboard.writeText(uuid);
           }}
-          className="px-4 animate-bounce cursor-pointer flex rounded-full bg-indigo-500 uppercase py-1 font-bold mr-3"
+          className="px-4 animate-bounce focus:animate-none cursor-pointer flex rounded-full bg-indigo-500 uppercase py-1 font-bold mr-3"
         >
           copy uuid
         </span>

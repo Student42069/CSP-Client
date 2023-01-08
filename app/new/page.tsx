@@ -1,12 +1,13 @@
 "use client";
 
-import "./new.css";
-
 import React, { useRef, useState } from "react";
 import ClearButton from "../../components/clearButton/clearButton";
+import Navbar from "../../components/navbar/navbar";
 import PasteButton from "../../components/pasteButton/pasteButton";
 import SendButton from "../../components/sendButton/sendButton";
 import UUIDNotification from "../../components/UUIDNotification/uuidNotification";
+
+import "./new.css";
 
 interface FormState {
   code: string;
@@ -32,7 +33,6 @@ export default function New() {
   };
 
   const handleSubmit = async () => {
-    // event.preventDefault();
     try {
       let object = {
         code: state.code,
@@ -58,8 +58,7 @@ export default function New() {
     }
   };
 
-  const handleClear = (event: React.FormEvent<HTMLButtonElement>) => {
-    // event.preventDefault();
+  const handleClear = () => {
     setState({ code: "", timeLimit: "", viewsLimit: "" });
     setUUID("");
   };
@@ -93,17 +92,18 @@ export default function New() {
   const [trigger, setTrigger] = useState(0);
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-blue-100">
-      <div className="flex justify-center flex-col w-3/5 h-3/4 text-xl">
+    <div className="min-h-screen flex flex-col justify-start bg-blue-100 dark:bg-slate-800">
+      <Navbar />
+      <div className="py-14 flex justify-center flex-col text-xl items-center my-auto">
         <textarea
           placeholder="Write (Copy/Paste) your code here :"
           ref={textareaRef}
           name="code"
           value={state.code}
           onChange={handleChange}
-          className=" h-2/3 caret-purple-500 block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="caret-purple-500 p-2.5 w-3/5 min-h-[40vh] text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
-        <div className="grid gap-6 mt-6 md:grid-cols-2">
+        <div className="grid gap-6 mt-6 md:grid-cols-2 w-3/5">
           <div>
             <input
               type="text"
@@ -126,7 +126,7 @@ export default function New() {
           </div>
         </div>
         {uuid && <UUIDNotification uuid={uuid} />}
-        <div className="flex justify-center my-6">
+        <div className="flex justify-center mt-6">
           <SendButton send={testSend} trigger={trigger} />
           <PasteButton paste={handlePaste} />
           <ClearButton clear={handleClear} trigger={trigger} />
