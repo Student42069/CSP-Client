@@ -10,6 +10,11 @@ export default function Head() {
       {/* <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script> */}
 
       {/* <link rel="stylesheet" href="./prettify.css" /> */}
+      {/* <link
+        href="https://cdn.jsdelivr.net/npm/prettify.js@1.0.0/prettify.min.css"
+        rel="stylesheet"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/prettify.js@1.0.0/prettify.min.js"></script> */}
     </>
   );
 }
