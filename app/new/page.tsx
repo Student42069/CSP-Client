@@ -127,7 +127,7 @@ export default function New() {
         </div>
         {uuid && <UUIDNotification uuid={uuid} />}
         <div className="flex justify-center mt-6 flex-col sm:flex-row">
-          <SendButton send={testSend} trigger={trigger} />
+          <SendButton send={handleSubmit} trigger={trigger} />
           <PasteButton paste={handlePaste} />
           <ClearButton clear={handleClear} trigger={trigger} />
         </div>
