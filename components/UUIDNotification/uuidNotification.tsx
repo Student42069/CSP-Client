@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function uuidNotification({ uuid }: any) {
@@ -16,17 +17,19 @@ export default function uuidNotification({ uuid }: any) {
         >
           copy uuid
         </span>
-        <a
+        {/* <a
           href={
             "http://codesharingplatformwithspringboot-env.eba-kym3bz5b.us-east-1.elasticbeanstalk.com/code/" +
             uuid
           }
           target="_blank"
-        >
+        > */}
+        <Link href={"/" + uuid}>
           <span className="font-semibold mr-2 text-left flex-auto">
             View your code snippet !
           </span>
-        </a>
+        </Link>
+        {/* </a> */}
         <svg
           className="fill-current opacity-75 h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"

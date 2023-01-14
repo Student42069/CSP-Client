@@ -40,7 +40,7 @@ export default function clearButton({ clear, trigger }: any) {
       id="clearButton"
       onAnimationEnd={handleAnimationEnd}
       onClick={handleClear}
-      className="border-b-4 border-r-0 border-red-800 hover:border-red-600 cursor-pointer transform active:scale-95 bg-red-600 hover:bg-red-500 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
+      className="py-6 border-b-4 border-red-800 hover:border-red-600 cursor-pointer transform active:scale-95 bg-red-600 hover:bg-red-500 text-white px-16 rounded-lg font-bold tracking-widest"
     >
       <div className="flex justify-center items-center relative">
         <div className="svg-container">

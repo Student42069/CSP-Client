@@ -39,7 +39,7 @@ export default function sendButton({ send, trigger }: any) {
     <button
       onAnimationEnd={handleAnimationEnd}
       onClick={handleSend}
-      className="border-b-4 border-r-0 border-green-900 hover:border-green-700 transform active:scale-95 bg-green-700 hover:bg-green-600 text-white px-16 py-6 rounded-lg font-bold tracking-widest"
+      className="py-6 border-b-4 border-green-900 hover:border-green-700 transform active:scale-95 bg-green-700 hover:bg-green-600 text-white px-16 rounded-lg font-bold tracking-widest"
     >
       <div className="flex justify-center items-center relative">
         <div className="svg-container">

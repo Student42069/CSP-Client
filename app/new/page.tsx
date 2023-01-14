@@ -21,7 +21,7 @@ export default function New() {
     timeLimit: "",
     viewsLimit: "",
   });
-  const [uuid, setUUID] = useState("l");
+  const [uuid, setUUID] = useState("");
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -94,7 +94,7 @@ export default function New() {
   return (
     <div className="min-h-screen flex flex-col justify-start bg-blue-100 dark:bg-slate-800">
       <Navbar />
-      <div className="py-14 flex justify-center flex-col text-xl items-center my-auto">
+      <div className="py-0 flex justify-center flex-col text-xl items-center my-auto">
         <textarea
           placeholder="Write (Copy/Paste) your code here :"
           ref={textareaRef}
@@ -126,7 +126,7 @@ export default function New() {
           </div>
         </div>
         {uuid && <UUIDNotification uuid={uuid} />}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-6 flex-col sm:flex-row">
           <SendButton send={testSend} trigger={trigger} />
           <PasteButton paste={handlePaste} />
           <ClearButton clear={handleClear} trigger={trigger} />
