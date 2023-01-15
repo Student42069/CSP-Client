@@ -80,7 +80,7 @@ export default function New() {
     ) {
       // `navigator.clipboard.readText` is supported
       navigator.clipboard.readText().then((text) => {
-        textareaRef.current.value = text;
+        textareaRef.current!.value = text;
       });
     } else {
       // `navigator.clipboard.readText` is not supported
