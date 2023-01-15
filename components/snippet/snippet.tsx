@@ -12,8 +12,8 @@ export default function Snippet({ code }: any) {
   }, [code]);
 
   return (
-    <pre>
-      <code className="language-javascript">{code}</code>
+    <pre id="code_snippet">
+      <code className="language-js">{code}</code>
     </pre>
   );
 }
