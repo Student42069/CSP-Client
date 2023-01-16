@@ -23,6 +23,7 @@ export default function Page({ params }: any) {
         }
       );
       const data = await res.json();
+      console.log(data);
       setSnippet(<Snippet code={data.code} />);
       setDate(data.date);
     } catch (error) {
@@ -40,7 +41,6 @@ export default function Page({ params }: any) {
     <div className="min-h-screen flex-col flex justify-start bg-slate-900 ">
       <Navbar />
       <div className="flex flex-col text-xl mx-auto my-14 w-min p-10 pb-5 ring-offset-0 rounded-3xl shadow-2xl shadow-blue-500/50 bg-slate-500">
-        {/* <div className="flex flex-col text-xl  m-auto bg-slate-400 w-min p-24 outline outline-offset-2 outline-cyan-500 outline-dashed"> */}
         {snippet}
         <div className="text-xl font-sans font-light uppercase flex justify-end">
           <p className="whitespace-nowrap">

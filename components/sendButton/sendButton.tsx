@@ -17,11 +17,21 @@ export default function sendButton({ send, trigger }: any) {
     setCheckMarkClass("check-svg hidden");
   }
 
+  const [count, setCount] = useState(0);
+
+  function sendOneTime() {
+    setCount(count + 1);
+    console.log(count);
+    if (count % 2 == 0) {
+      send();
+    }
+  }
+
   function handleAnimationEnd() {
     setLoaderClass("t2download-loader text-white hidden");
     setCheckMarkClass("check-svg");
     setSendButtonText("SENT");
-    send();
+    sendOneTime();
   }
 
   function resetText() {

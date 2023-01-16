@@ -48,10 +48,10 @@ export default function New() {
         }),
       });
       const data = await res.json();
+      console.log(data);
       setUUID(data.id);
     } catch (error) {
       console.error(error);
-      setUUID("An error occurred while making the request");
     }
   };
 
