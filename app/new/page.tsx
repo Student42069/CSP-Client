@@ -39,17 +39,14 @@ export default function New() {
         time: state.timeLimit == "" ? 0 : parseInt(state.timeLimit),
         views: state.viewsLimit == "" ? 0 : parseInt(state.viewsLimit),
       };
-      const res = await fetch(
-        "http://codesharingplatformwithspringboot-env.eba-kym3bz5b.us-east-1.elasticbeanstalk.com/api/code/new",
-        {
-          method: "post",
-          body: JSON.stringify(object),
-          mode: "cors",
-          headers: new Headers({
-            "Content-Type": "application/json; charset=utf-8",
-          }),
-        }
-      );
+      const res = await fetch("https://codesharingplatform.com/api/code/new", {
+        method: "post",
+        body: JSON.stringify(object),
+        mode: "cors",
+        headers: new Headers({
+          "Content-Type": "application/json; charset=utf-8",
+        }),
+      });
       const data = await res.json();
       setUUID(data.id);
     } catch (error) {

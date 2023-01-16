@@ -13,8 +13,7 @@ export default function Page({ params }: any) {
   const getSnippet = async () => {
     try {
       const res = await fetch(
-        "http://codesharingplatformwithspringboot-env.eba-kym3bz5b.us-east-1.elasticbeanstalk.com/api/code/" +
-          params.uuid,
+        "https://codesharingplatform.com/api/code/" + params.uuid,
         {
           method: "get",
           mode: "cors",
